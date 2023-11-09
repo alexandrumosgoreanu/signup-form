@@ -1,5 +1,6 @@
 :root{
-    --color: #00be49;
+    --green: #00be49;
+    --red:  #ff0000;
     --txt: rgb(185, 185, 185);
     --bgcolor:  #181818;
 }
@@ -75,7 +76,7 @@ h1{
 .dummy-text{
     font-weight: 500;
     width: 90%;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
 }
 
 .remote-text{
@@ -113,7 +114,7 @@ h1{
 
 .input label {
     position: absolute;
-    top: 0;
+    top: 20px;
     left: 10px;
     color: white;
     display: flex;
@@ -127,42 +128,61 @@ input, label {
     height: 55px;
 }
 
-input:focus + label,
-input:valid + label {
-    top:-5px;
+.invalid:focus + label,
+.valid:focus + label,
+.valid + label,
+.invalid + label,
+input:focus + label{
+    top: 15px;
     font-size: 0.75rem;
     pointer-events: none;
     background-color: var(--bgcolor);
     height: 0.75rem;
     padding: 0 10px;
+    
 }
-
 
 input{
     background-color: rgb(22, 22, 22);
     border: 1px solid rgb(77, 77, 77);
     border-radius: 3px;
     padding-left: 10px;
+    margin-top: 20px;
 }
 
-input:focus{
+ /* input:focus{
     outline: none;
-    border: 2px solid var(--color);
+    border: 2px solid var(--txt);
+}    */
+
+
+
+.invalid {
+    border: 2px solid var(--red);
+}
+
+.valid, .valid:focus {
+    border: 2px solid var(--green) !important;
+}
+
+
+.invalid:focus{
+    border: 2px solid var(--red) !important;
 }
 
 button{
     background-color: rgba(0, 0, 0, 0);
-    color: var(--color);
+    color: var(--green);
     font-weight: 700;
     font-size: 1.2em;
-    border: 2px solid var(--color);
+    border: 2px solid var(--green);
     border-radius: 5px;
     padding: 10px 40px;
     margin: 40px 0;
+    transition: 0.2s ease-in-out;
 }
-
 button:hover{
-    background-color: var(--color);
+    background-color: var(--green);
     color: black;
     
 }
@@ -174,7 +194,7 @@ button:hover{
 
 a{
     text-decoration: none;
-    color: var(--color);
+    color: var(--green);
     font-weight: 700;
 }
 
@@ -182,26 +202,19 @@ a:hover{
     color: white;
 }
 
-input:invalid:focus {
-    border: 2px solid rgb(255, 69, 100)
- }
-  
- input:focus:valid {
-    border: 2px solid var(--color);
- }
   
 .error {
-    font-family: customFontBold;
     font-size: .7rem;
-    color: rgb(255, 69, 100);
+    color:var(--red);
     position: absolute;
+    top: 80px;
  }
 
 
 
 
 
-
+/* 
 
 @media only screen and (max-width: 600px)  {
     .content{
@@ -265,4 +278,4 @@ input:invalid:focus {
         padding: 10px 5px;
     }
 
-}
+} */
